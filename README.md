@@ -226,12 +226,3 @@ johndeere-ecommerce/
 
 ---
 
-## 📊 Cost Estimation (COCOMO II)
-- UFP: 372 → AFP: 402 → **SLOC: 18,894**
-- Effort: **38.2 person-months**
-- Duration: 3 months (compressed, 6-member team)
-- **Total Cost: ₹8,25,000**
-
----
-
-*Reference: 8R Series parts data sourced from John Deere Replacement Parts Guide (TR150428), Publish Date: 15/04/2025*
