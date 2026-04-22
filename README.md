@@ -1,10 +1,5 @@
 # 🌿 John Deere E-Commerce Parts Diagram System
-### Version 4.0 — Complete Final Project
 
-> **Academic Project** | ThoughtWorks Technologies India Pvt Ltd × MITAOE  
-> Software Engineering (SPPU) | Agile/Scrum | 2025–2026
-
----
 
 ## 📋 Project Overview
 
@@ -214,19 +209,7 @@ johndeere-ecommerce/
 
 ---
 
-## 👥 Project Team — MITAOE
 
-| Student ID | Name | UML Diagrams |
-|---|---|---|
-| 202301040024 | Sakshi Patil | Profile Diagram, State Machine Diagram |
-| 202301040025 | Srushti Kapase | Component Diagram, Package Diagram |
-| 202301040131 | Sujal Sonawane | Sequence Diagram, Timing Diagram |
-| 202301040132 | Rohan Varade | Activity Diagram, Communication Diagram |
-| 202301040236 | Saqlain Momin | Class Diagram, Object Diagram |
-| 202402040028 | Saishwari Korade | Use Case Diagram, Interaction Overview |
-
-**Industry Mentor:** Sanika Powar, Software Engineer  
-ThoughtWorks Technologies India Pvt Ltd | sanika.powar@thoughtworks.com
 
 ---
 
