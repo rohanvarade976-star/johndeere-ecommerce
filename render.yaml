@@ -5,7 +5,7 @@ services:
     env: docker
     plan: free
     dockerContext: .
-    dockerfile: ./backend/Dockerfile.mysql
+    dockerfilePath: ./backend/Dockerfile.mysql
     envVars:
       - key: MYSQL_ROOT_PASSWORD
         value: root
@@ -18,7 +18,7 @@ services:
     env: docker
     plan: free
     dockerContext: ./backend
-    dockerfile: Dockerfile
+    dockerfilePath: Dockerfile
     envVars:
       - key: DB_HOST
         fromService:
