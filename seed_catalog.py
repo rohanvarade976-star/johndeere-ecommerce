@@ -25,7 +25,7 @@ def run():
     df = pd.read_csv(CSV_FILE)
     
     sql_lines = [
-        "USE johndeere_ecommerce;",
+        "USE defaultdb;",
         "SET FOREIGN_KEY_CHECKS = 0;",
         "TRUNCATE TABLE parts;",
         "TRUNCATE TABLE inventory;",

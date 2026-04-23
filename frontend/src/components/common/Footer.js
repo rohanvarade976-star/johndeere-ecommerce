@@ -53,10 +53,9 @@ export default function Footer(){
           {/* Project */}
           <div>
             <h4 style={{color:'white',fontSize:13,fontWeight:800,marginBottom:16,textTransform:'uppercase',letterSpacing:0.8}}>Project Team</h4>
-            {[['Sakshi Patil','Profile & State Machine Diagrams'],['Srushti Kapase','Component & Package Diagrams'],['Sujal Sonawane','Sequence & Timing Diagrams'],['Saishwari Korade','Use Case & Interaction Diagrams'],['Saqlain Momin','Class & Object Diagrams'],['Rohan Varade','Activity & Communication Diagrams']].map(([n,d])=>(
-              <div key={n} style={{marginBottom:10}}>
+            {['Sakshi Patil','Srushti Kapase','Sujal Sonawane','Saishwari Korade','Saqlain Momin','Rohan Varade'].map(n=>(
+              <div key={n} style={{marginBottom:8}}>
                 <div style={{fontSize:13,color:'rgba(255,255,255,0.85)',fontWeight:600}}>{n}</div>
-                <div style={{fontSize:11,color:'rgba(255,255,255,0.38)',marginTop:1}}>{d}</div>
               </div>
             ))}
           </div>

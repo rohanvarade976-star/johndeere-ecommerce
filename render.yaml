@@ -1,0 +1,51 @@
+services:
+  # MySQL Database (Docker)
+  - type: web
+    name: jd-mysql
+    env: docker
+    plan: free
+    dockerContext: .
+    dockerfile: ./backend/Dockerfile.mysql
+    envVars:
+      - key: MYSQL_ROOT_PASSWORD
+        value: root
+      - key: MYSQL_DATABASE
+        value: johndeere_ecommerce
+
+  # Backend API
+  - type: web
+    name: jd-backend
+    env: docker
+    plan: free
+    dockerContext: ./backend
+    dockerfile: Dockerfile
+    envVars:
+      - key: DB_HOST
+        fromService:
+          name: jd-mysql
+          type: web
+          property: host
+      - key: DB_USER
+        value: root
+      - key: DB_PASSWORD
+        value: root
+      - key: DB_NAME
+        value: johndeere_ecommerce
+      - key: JWT_SECRET
+        generateValue: true
+      - key: FRONTEND_URL
+        value: https://jd-frontend.onrender.com # Change this after frontend is deployed
+
+  # Frontend (Static Site)
+  - type: web
+    name: jd-frontend
+    env: docker
+    plan: free
+    dockerContext: ./frontend
+    dockerfile: Dockerfile
+    envVars:
+      - key: REACT_APP_API_URL
+        fromService:
+          name: jd-backend
+          type: web
+          property: url
