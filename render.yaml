@@ -45,7 +45,4 @@ services:
     dockerfilePath: Dockerfile
     envVars:
       - key: REACT_APP_API_URL
-        fromService:
-          name: jd-backend
-          type: web
-          property: url
+        value: https://jd-backend.onrender.com/api
