@@ -42,7 +42,7 @@ services:
     env: docker
     plan: free
     dockerContext: ./frontend
-    dockerfile: Dockerfile
+    dockerfilePath: Dockerfile
     envVars:
       - key: REACT_APP_API_URL
         fromService:
