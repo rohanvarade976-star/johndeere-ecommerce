@@ -17,7 +17,7 @@ COPY --from=builder /app/package*.json ./
 RUN npm install --production
 
 COPY --from=builder /app/src ./src
-COPY --from=builder /app/uploads ./uploads
+RUN mkdir -p uploads
 
 EXPOSE 5000
 
