@@ -1,5 +1,6 @@
 -- John Deere E-Commerce Parts System - Consolidated Deployment Script
--- This script combines schema and essential seed data for production deployment.
+CREATE DATABASE IF NOT EXISTS johndeere_ecommerce;
+USE johndeere_ecommerce;
 
 -- Users Table
 CREATE TABLE IF NOT EXISTS users (

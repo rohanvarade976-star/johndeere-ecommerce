@@ -22,8 +22,10 @@ RUN echo '#!/bin/bash\n\
 service mariadb start\n\
 # Wait for MariaDB to be ready\n\
 until mariadb-admin ping >/dev/null 2>&1; do echo "Waiting for MariaDB..."; sleep 2; done\n\
-# Initialize database if not already done\n\
+# Initialize database\n\
 mariadb < /docker-entrypoint-initdb.d/init.sql\n\
+# Ensure root can connect without password from 127.0.0.1\n\
+mariadb -e "GRANT ALL PRIVILEGES ON *.* TO \"root\"@\"127.0.0.1\" IDENTIFIED BY \"root\"; FLUSH PRIVILEGES;"\n\
 # Start the Node app\n\
 npm start' > /usr/local/bin/start.sh && chmod +x /usr/local/bin/start.sh
 
