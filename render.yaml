@@ -17,8 +17,8 @@ services:
     name: jd-backend
     env: docker
     plan: free
-    dockerContext: ./backend
-    dockerfilePath: Dockerfile
+    dockerContext: .
+    dockerfilePath: ./backend/Dockerfile
     healthCheckPath: /health
     envVars:
       - key: NODE_ENV
@@ -39,15 +39,15 @@ services:
       - key: JWT_SECRET
         generateValue: true
       - key: FRONTEND_URL
-        value: https://jd-frontend.onrender.com
+        value: https://jd-frontend-gfpf.onrender.com # Updated with your suffix
 
   # Frontend (Static Site via Docker)
   - type: web
     name: jd-frontend
     env: docker
     plan: free
-    dockerContext: ./frontend
-    dockerfilePath: Dockerfile
+    dockerContext: .
+    dockerfilePath: ./frontend/Dockerfile
     envVars:
       - key: REACT_APP_API_URL
-        value: https://jd-backend.onrender.com/api
+        value: https://jd-backend-f99l.onrender.com/api # Updated with your suffix
