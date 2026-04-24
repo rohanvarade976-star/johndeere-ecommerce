@@ -3,10 +3,10 @@ FROM node:18-alpine as build-stage
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY frontend/package*.json ./
 RUN npm install
 
-COPY . .
+COPY frontend/ .
 
 # Build for production
 RUN npm run build

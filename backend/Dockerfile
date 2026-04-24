@@ -3,10 +3,10 @@ FROM node:18-alpine AS builder
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY backend/package*.json ./
 RUN npm install
 
-COPY . .
+COPY backend/ .
 
 # Stage 2: Production
 FROM node:18-alpine
