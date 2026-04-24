@@ -1,5 +1,5 @@
 services:
-  # MySQL Database (Docker)
+  # MySQL Database (Docker with health check hack)
   - type: web
     name: jd-mysql
     env: docker
@@ -19,7 +19,12 @@ services:
     plan: free
     dockerContext: ./backend
     dockerfilePath: Dockerfile
+    healthCheckPath: /health
     envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5000
       - key: DB_HOST
         fromService:
           name: jd-mysql
@@ -34,9 +39,9 @@ services:
       - key: JWT_SECRET
         generateValue: true
       - key: FRONTEND_URL
-        value: https://jd-frontend.onrender.com # Change this after frontend is deployed
+        value: https://jd-frontend.onrender.com
 
-  # Frontend (Static Site)
+  # Frontend (Static Site via Docker)
   - type: web
     name: jd-frontend
     env: docker

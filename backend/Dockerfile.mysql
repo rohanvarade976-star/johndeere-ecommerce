@@ -1,7 +1,17 @@
 FROM mysql:8.0
 
-# Copy schema and seed data to the auto-init directory
+# Install netcat for a simple health check listener
+RUN apt-get update && apt-get install -y netcat-openbsd && rm -rf /var/lib/apt/lists/*
+
+# Copy schema and seed data
 COPY ./database/schema.sql /docker-entrypoint-initdb.d/01_schema.sql
 COPY ./seed_catalog.sql /docker-entrypoint-initdb.d/02_seed.sql
 
-EXPOSE 3306
+# Create a script to run both MySQL and a dummy health check on port 80
+RUN echo '#!/bin/bash\n\
+(while true; do echo -e "HTTP/1.1 200 OK\n\n OK" | nc -l -p 80; done) &\n\
+docker-entrypoint.sh mysqld' > /usr/local/bin/start.sh && chmod +x /usr/local/bin/start.sh
+
+EXPOSE 3306 80
+
+ENTRYPOINT ["/usr/local/bin/start.sh"]

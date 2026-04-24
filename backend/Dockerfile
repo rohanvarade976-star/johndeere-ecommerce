@@ -1,18 +1,24 @@
+# Stage 1: Build
+FROM node:18-alpine AS builder
+
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm install
+
+COPY . .
+
+# Stage 2: Production
 FROM node:18-alpine
 
 WORKDIR /app
 
-# Copy package files
-COPY package*.json ./
-
-# Install dependencies
+COPY --from=builder /app/package*.json ./
 RUN npm install --production
 
-# Copy source code
-COPY . .
+COPY --from=builder /app/src ./src
+COPY --from=builder /app/uploads ./uploads
 
-# Expose the API port
 EXPOSE 5000
 
-# Start the server
 CMD ["node", "src/server.js"]
